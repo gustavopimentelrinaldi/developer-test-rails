@@ -1,0 +1,12 @@
+.author{
+    color: #727272;
+    transition: 0.5s linear all;
+}
+
+.author:hover{
+   color: orange;
+}
+
+.area{
+    resize: vertical;
+}

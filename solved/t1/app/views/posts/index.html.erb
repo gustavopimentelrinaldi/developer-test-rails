@@ -1,0 +1,43 @@
+   
+<div class="col-lg-8">
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <span>Olá, fique à vontade para criar, deletar, visualizar e editar as postagens! <%= link_to "Criar Postagem", new_post_path %></span>
+    </div>
+</div>
+<% @posts.each do |post| %>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h1 class="panel-title">Postagem <%= post.id %></h1>
+    </div>
+    <div class="panel-body">
+           <!-- Title -->
+        <h1><%= link_to post.title, post %></h1>
+
+        <p class="lead">
+            Por <%= link_to post.author, post %>
+        </p>
+        <hr>
+        <p><span class="glyphicon glyphicon-time"></span> Postado há <strong><%= time_ago_in_words(post.created_at) %></strong></p>
+        <p><span class="glyphicon glyphicon-time"></span> Atualizado há <strong><%= time_ago_in_words(post.updated_at) %></strong></p>
+        <hr>
+
+        <blockquote>
+        <p><%= truncate(post.body, length: 100) %></p>
+        </blockquote>
+        <hr>
+        <%= link_to  "Visualizar artigo", post, class: "btn btn-info pull-right" %>
+    </div>
+</div>
+<% end %>
+</div>
+<div class="col-md-4">
+    <div class="list-group">
+        <a href="#" class="list-group-item active">
+        Artigos por título
+        </a>
+        <% @posts.each do |post| %>
+        <%= link_to post.title, post, class: "list-group-item" %>
+        <% end %>
+    </div>
+</div>

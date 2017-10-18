@@ -1,0 +1,46 @@
+<div class="panel panel-default">
+<div class="panel-heading">Artigo</div>
+    <div class="panel-body">
+        <% if @post.errors.any? %>
+        <% @post.errors.full_messages.each do |message| %>
+        <div type="button" class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+            <li><%= message %></li>
+        </div>
+        <% end %>
+        <% end %>
+        <%= form_for @post do |f| %>
+        <div class="col-md-6">
+            <div class="form-group has-success has-feedback">
+            <%= f.label :Título %>
+            <%= f.text_field :title, class: "form-control", placeholder: "Título", :maxlength => "60" %>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+                <div class="form-group has-success has-feedback">
+                <%= f.label :Assunto %>
+                <%= f.text_field :description, class: "form-control", placeholder: "Tema do artigo", :maxlength => "60" %>
+                </div>    
+        </div>
+        
+        <div class="col-md-12">
+            <div class="form-group has-success has-feedback">
+            <%= f.label :Autor %>
+            <%= f.text_field :author, class: "form-control", placeholder: "Quem está escrevendo?", :maxlength => "60" %>
+            </div>    
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group has-success has-feedback">
+            <%= f.label :Mensagem %>
+            <%= f.text_area :body, class: "form-control area", placeholder: "Disserte aqui", rows: 15, data: { provide: 'markdown' } %>
+            </div>    
+        </div>
+        
+        <div class="col-md-1 form-group">
+            <%= submit_tag "Enviar", class: "btn btn-success" %>
+        </div>
+        <% end %>
+    </div>
+</div>
