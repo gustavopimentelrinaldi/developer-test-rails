@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     def create
         @post = Post.new(post_params)
         if @post.save
-            redirect_to @post, notice: "Artigo criado e postado!"
+            redirect_to @post, notice: t("success!")
         else
             render :new
         end
@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 
     def update
         if @post.update(post_params)
-            redirect_to @post, notice: "Atualizado com sucesso!"
+            redirect_to @post, notice: t("updated!")
         else
             render :edit
         end
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
 
     def destroy
         @post.destroy
-        redirect_to posts_path, alert: "Artigo excluído!"
+        redirect_to posts_path, alert: t("deleted!")
     end
 
     private

@@ -1,34 +1,24 @@
 # Teste 1
 
-## Primeira etapa
+## Primeira etapa ~ CONCLUIDA
 
-Construa uma aplicação em Rails CRUD (CREATE, READ, UPDATE, DELETE), orientado a objetos.
-Este CRUD deverá gerenciar Páginas Web, que são composta pelos seguintes campos:
-Os campos a seguir são obrigatórios, sinta-se a vontade para criar outros campos se achar necessário.
-
-+ id;
-
-+ title;
-
-+ description;
-
-+ body;
-
-+ author;
-
-+ created_at;
-
-+ updated_at;
+Criei um BLOG básico, e um controller onde fiz todo o CRUD.
+Apenas os campos requisitados.
+Validei os campos no model
 
 
-## Segunda Etapa
+## Segunda Etapa ~ CONCLUIDA
 
-Implemente os testes unitários para esta aplicação
+Implementei 3 exemplos com o Framework Rspec + Capybara
+(Conhecimento muito básico, não conhecia até tentar fazer o teste)
+Execute na pasta raiz da APP o comando -> rake spec
+Fiz 2 exemplos no model test e 1 exemplo no controller
+~ Me perdoe pela incompetência nessa parte.
 
+## Terceira Etapa ~ CONCLUIDA
 
-## Terceira Etapa
-
-Internacionalize a aplicação utilizando os recursos do Rails
+Breves internacionalizações na chave 'pt-BR' e 'en-US' (views e model)
+-- Fiz muito básico
 
 
 ## Quarta Etapa

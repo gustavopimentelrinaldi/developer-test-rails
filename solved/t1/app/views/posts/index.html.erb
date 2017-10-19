@@ -1,25 +1,24 @@
-   
 <div class="col-lg-8">
 <div class="panel panel-primary">
     <div class="panel-body">
-        <span>Olá, fique à vontade para criar, deletar, visualizar e editar as postagens! <%= link_to "Criar Postagem", new_post_path %></span>
+        <span><%= t('ola') %> <%= link_to "Criar Artigo", new_post_path, id: "Criar" %></span>
     </div>
 </div>
 <% @posts.each do |post| %>
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h1 class="panel-title">Artigo <%= post.id %></h1>
+        <h1 class="panel-title"><%= t 'article' %> <%= post.id %></h1>
     </div>
     <div class="panel-body">
            <!-- Title -->
         <h1><%= link_to post.title, post %></h1>
 
         <p class="lead">
-            Por <%= link_to post.author, post %>
+           <%= t 'by' %> <%= link_to post.author, post %>
         </p>
         <hr>
-        <p><span class="glyphicon glyphicon-time"></span> Postado há <strong><%= time_ago_in_words(post.created_at) %></strong></p>
-        <p><span class="glyphicon glyphicon-time"></span> Atualizado há <strong><%= time_ago_in_words(post.updated_at) %></strong></p>
+        <p><span class="glyphicon glyphicon-time"></span> <%= t 'created_at' %> <strong><%= time_ago_in_words(post.created_at) %></strong> <%= t ('at') %> <strong><%= l (post.created_at) %></strong></p>
+        <p><span class="glyphicon glyphicon-time"></span> <%= t 'updated_at' %> <strong><%= time_ago_in_words(post.updated_at) %></strong> <%= t ('at') %> <strong><%= l (post.updated_at) %></strong></p>
         <hr>
 
         <blockquote>
@@ -34,7 +33,7 @@
 <div class="col-md-4">
     <div class="list-group">
         <a href="#" class="list-group-item active">
-        Artigos por título
+        <%= t 'orderByTitle' %>
         </a>
         <% @posts.each do |post| %>
         <%= link_to post.title, post, class: "list-group-item" %>
