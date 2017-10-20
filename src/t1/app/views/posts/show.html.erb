@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h4><%= t 'preview' %> <span><%= @post.id %></span></h4>
+  </div>
+  <div class="panel-body">
+    <h1><%= @post.title %></h1>
+    <p class="lead"><%= t 'by' %> <span class="author"><%=  @post.author %></span></p>
+    <hr>
+    <p><span class="glyphicon glyphicon-time"></span> <%= t 'created_at' %> <strong><%= time_ago_in_words(@post.created_at) %></strong> <%= t ('at') %> <strong><%= l (@post.created_at) %></strong></p>
+    <p><span class="glyphicon glyphicon-time"></span> <%= t 'updated_at' %> <strong><%= time_ago_in_words(@post.updated_at) %></strong> <%= t ('at') %> <strong><%= l (@post.updated_at) %></strong></p>
+    <hr>
+    <div class="well">
+      <blockquote>
+        <%= @post.description %>
+      </blockquote>
+      <hr>
+      <p><%= @post.body %></p>
+    </div>    
+    <hr>
+    <div class="btn-group pull-right" role="group">
+      <%= link_to "Listar artigos", posts_path, class: "btn btn-success" %>
+      <%= link_to "Editar", edit_post_path(@post), class: "btn btn-default" %>
+      <%= link_to "Criar novo artigo", new_post_path, class: "btn btn-info" %>
+      <%= link_to "Deletar", post_path(@post), class: "btn btn-danger", method: :delete, data: { confirm: t('sure?') } %>
+    </div>
+  </div>
+</div>

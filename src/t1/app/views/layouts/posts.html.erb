@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+  <head>
+    <title><%= t('test1') %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'posts', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'posts', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <%= render partial: "layouts/shared/header", cached: true %>
+  <main class="container">
+    <section class="row">
+      <%= yield %>
+    </section>
+  </main>
+    
+  <%= render partial: "layouts/shared_notice/notifications", cached: true %>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<div class="col-lg-8">
+	<div class="panel panel-primary">
+		<div class="panel-body">
+			<span><%= t('ola') %> <%= link_to t("create"), new_post_path, id: "Criar" %></span>
+		</div>
+	</div>
+	<% @posts.each do |post| %>
+		<% cache post do %>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h1 class="panel-title"><%= t 'article' %> <%= post.id %></h1>
+		</div>
+		<div class="panel-body">
+			<h1><%= link_to post.title, post_path(post) %></h1>
+
+			<p class="lead">
+				<%= t 'by' %> <%= link_to post.author, post_path(post) %>
+			</p>
+			<hr>
+			<p><span class="glyphicon glyphicon-time"></span> <%= t 'created_at' %> <strong><%= time_ago_in_words(post.created_at) %></strong> <%= t ('at') %> <strong><%= l (post.created_at) %></strong></p>
+			<p><span class="glyphicon glyphicon-time"></span> <%= t 'updated_at' %> <strong><%= time_ago_in_words(post.updated_at) %></strong> <%= t ('at') %> <strong><%= l (post.updated_at) %></strong></p>
+			<hr>
+
+			<blockquote>
+			<p><%= truncate(post.body, length: 100) %></p>
+			</blockquote>
+			<hr>
+			<%= link_to t("view"), post_path(post), class: "btn btn-info pull-right" %>
+		</div>
+	</div>
+		<% end %>
+	<% end %>
+</div>
+<aside class="col-md-4">
+	<section class="list-group">
+		<a href="#" class="list-group-item active">
+		<%= t 'orderByTitle' %>
+		</a>
+		<% @posts.each do |post| %>
+			<% cache post do %>
+				<%= link_to post.title, post_path(post), class: "list-group-item" %>
+			<% end %>
+		<% end %>
+	</section>
+</aside>

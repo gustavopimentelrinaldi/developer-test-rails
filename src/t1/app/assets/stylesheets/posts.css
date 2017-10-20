@@ -1,0 +1,33 @@
+/*
+ *= require bootstrap
+ *= require animate-css
+ *= require font-awesome
+ *= require bootstrap-markdown
+ */
+
+  /** BS notify **/
+[data-notify="progressbar"] {
+    margin-bottom: 0px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 5px;
+}
+
+body{
+    background: #EEEEEE;
+}
+
+.author{
+    color: #727272;
+    transition: 0.5s linear all;
+}
+
+.author:hover{
+   color: orange;
+}
+
+.area{
+    resize: vertical;
+}
